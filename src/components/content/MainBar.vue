@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import tagbar from 'components/common/TagBar'
-import TagBarItem from 'components/common/TagBarItem'
+import tagbar from 'components/common/tabBar/TagBar'
+import TagBarItem from 'components/common/tabBar/TagBarItem'
 export default {
   data () {
     return {

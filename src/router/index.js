@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = ()=>import("views/home/Home")
-const Cars = ()=>import("views/cars/Cars")
-const Catalog = ()=>import("views/catalog/Catalog")
-const Profile = ()=>import("views/profile/Profile")
+const Home = ()=>import("views/category/home/Home")
+const Cars = ()=>import("views/category/cars/Cars")
+const Catalog = ()=>import("views/category/catalog/Catalog")
+const Profile = ()=>import("views/category/profile/Profile")
 const routes=[
   {
     path:"",
