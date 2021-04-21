@@ -4,7 +4,7 @@
     <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for='(item,index) in banners' :key=index>
       <a :href=item.link>
-          <img :src=item.image>
+          <img :src=item.image @load="swiperImageLoad">
         </a> 
       </swiper-slide>
        <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
@@ -50,15 +50,26 @@ import 'swiper/css/swiper.css'
                       //当用户滑动图片后继续自动轮播
                       disableOnInteraction: false,
                     },
+                   
                     
-                } 
+                } ,
+                 isLoad:true
             }  
+        },
+    methods:{
+      swiperImageLoad(){
+        if(this.isLoad){
+          this.$emit('imageLoad')
+          this.isLoad=false
         }
+         
+      },
+    }
   }
 </script>
 <style  scoped>
 img{
-  padding-top: 44px;
+  /* padding-top: 44px; */
   width:100%;
 }
 </style>
