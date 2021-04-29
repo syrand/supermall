@@ -1,8 +1,9 @@
 <template>
-  <div id="app">
-    <keep-alive>
-       <router-view/>
-    </keep-alive>
+  <div id="app"> <!-- Detail里每次点击不同图片保证拿到的数据不一样 -->
+       <keep-alive exclude="Detail">
+         <router-view></router-view>
+       </keep-alive>
+    
     <main-bar/>
   </div>
 </template>

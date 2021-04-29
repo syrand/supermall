@@ -37,11 +37,11 @@ import FeatureImg from './childCpn/featureImg'
 
 import {homeRequest1} from 'network/homeRequest'
 import {request2} from 'network/intences'
-import {debound} from 'common/utils'
-
+import {mixin} from 'common/mixin'
 
 
 export default {
+  mixins:[mixin],
   data () {
     return {
       banners:[],
@@ -85,10 +85,11 @@ export default {
     
     },
   mounted(){
-    const refresh=debound(this.$refs.scroll.finshRefresh,50)
-     this.$bus.$on('finishLoad',()=>{ /* 防抖操作，50ms操作一次 */
-         refresh()
-      });
+    /* 已写在mixin中 */
+    // const refresh=debound(this.$refs.scroll.finshRefresh,50)
+    //  this.$bus.$on('finishLoad',()=>{ /* 防抖操作，50ms操作一次 */
+    //      refresh()
+    //   });
 
   },
   activated(){
@@ -167,7 +168,6 @@ export default {
       }).then(res=>{
         this.goods[type].data.push(...res.data.data.list)
         this.goods[type].page+=1
-        console.log(this.goods[type])
       })
     }
 
